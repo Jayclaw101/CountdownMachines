@@ -1,3 +1,6 @@
+# ------------------------------------- Program Information
+
+
 """
 Author: Johanna Swirski
 See README for project description
@@ -34,13 +37,25 @@ For Point System:
     Could select the option to play for a full episode
     Go through the games as if it was an episode and track points
     High score system (Two player?)
+
+Notes:
+    Consider adding probability for different letters (q is not nearly as common as s)
+        Base off of statistics for how often letters appear in english?
 """
 
+
+# ------------------------------------- Program Initialisation
+
+
+import string
+import random
+
+# Main function - allow user to select a game to play
 def main():
-    userOption = input("Select a game:/nAnagrams: A/nNumbers: N/nConundrum: C/nFull Episode: E/nQuit: Q").upper()
+    userOption = input("Select a game:\nAnagrams: A\nNumbers: N\nConundrum: C\nFull Episode: E\nQuit: Q\n").upper()
     match userOption:
         case "A":
-            print("TBC")
+            anagramGame()
         case "N":
             print("TBC")
         case "C":
@@ -54,5 +69,46 @@ def main():
             print("Please input a valid option")
             main()
 
-print("Welcome to Countdown!/n")
+# Generate a random consonant
+def randomConsonant():
+    consonants = "bcdfghjklmnpqrstvwxyz"
+    #consonants = string.ascii_lowercase.replace("a", "").replace("e", "").replace("i", "").replace("o", "").replace("u", "")
+    letter = random.choice(consonants)
+    return letter
+
+# Generate a random vowel
+def randomVowel():
+    vowels = "aeiou"
+    letter = random.choice(vowels)
+    return letter
+
+# Anagram Game function - logic handling overarching plot for the anagram game
+def anagramGame():
+    print("Please select the 7 types of letter you want:\nVowel: V\nConsonants: C\n")
+    anagram = ""
+    x = 1
+    while x < 8:
+        choice = input(f"{x}/7:  ").upper()
+        letter = ""
+        match choice:
+            case "V":
+                letter = randomVowel()
+                x += 1
+            case "C":
+                letter = randomConsonant()
+                x += 1
+            case other:
+                print("Please input a valid option")
+        if letter != "":
+            anagram = anagram + letter
+            print(anagram)
+    print("\nThe final anagram is: ", anagram, "\n")
+
+    return
+
+
+# ------------------------------------- Program Start
+
+
+print("Welcome to Countdown!\n")
 main()
