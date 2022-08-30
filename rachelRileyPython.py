@@ -1,3 +1,6 @@
+# ------------------------------------- Program Information
+
+
 """
 Author: Johanna Swirski
 See README for project description
@@ -36,11 +39,20 @@ For Point System:
     High score system (Two player?)
 """
 
+
+# ------------------------------------- Program Initialisation
+
+
+from re import A
+import string
+import random
+
+# Main function - allow user to select a game to play
 def main():
-    userOption = input("Select a game:/nAnagrams: A/nNumbers: N/nConundrum: C/nFull Episode: E/nQuit: Q").upper()
+    userOption = input("Select a game:\nAnagrams: A\nNumbers: N\nConundrum: C\nFull Episode: E\nQuit: Q\n").upper()
     match userOption:
         case "A":
-            print("TBC")
+            anagramGame()
         case "N":
             print("TBC")
         case "C":
@@ -54,5 +66,29 @@ def main():
             print("Please input a valid option")
             main()
 
-print("Welcome to Countdown!/n")
+# Generate a random consonant
+def randomConsonant():
+    consonants = string.ascii_lowercase.replace("a", "").replace("e", "").replace("i", "").replace("o", "").replace("u", "")
+    letter = random.choice(consonants)
+    return letter
+
+# Generate a random vowel
+def randomVowel():
+    vowels = "aeiou"
+    letter = random.choice(vowels)
+    return letter
+
+# Anagram Game function - logic handling overarching plot for the anagram game
+def anagramGame():
+    print(randomConsonant())
+    for x in range(6):
+        print(randomVowel())
+        x += 1
+    return
+
+
+# ------------------------------------- Program Start
+
+
+print("Welcome to Countdown!\n")
 main()
