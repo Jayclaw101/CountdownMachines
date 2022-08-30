@@ -37,13 +37,16 @@ For Point System:
     Could select the option to play for a full episode
     Go through the games as if it was an episode and track points
     High score system (Two player?)
+
+Notes:
+    Consider adding probability for different letters (q is not nearly as common as s)
+        Base off of statistics for how often letters appear in english?
 """
 
 
 # ------------------------------------- Program Initialisation
 
 
-from re import A
 import string
 import random
 
@@ -68,7 +71,8 @@ def main():
 
 # Generate a random consonant
 def randomConsonant():
-    consonants = string.ascii_lowercase.replace("a", "").replace("e", "").replace("i", "").replace("o", "").replace("u", "")
+    consonants = "bcdfghjklmnpqrstvwxyz"
+    #consonants = string.ascii_lowercase.replace("a", "").replace("e", "").replace("i", "").replace("o", "").replace("u", "")
     letter = random.choice(consonants)
     return letter
 
@@ -80,10 +84,26 @@ def randomVowel():
 
 # Anagram Game function - logic handling overarching plot for the anagram game
 def anagramGame():
-    print(randomConsonant())
-    for x in range(6):
-        print(randomVowel())
-        x += 1
+    print("Please select the 7 types of letter you want:\nVowel: V\nConsonants: C\n")
+    anagram = ""
+    x = 1
+    while x < 8:
+        choice = input(f"{x}/7:  ").upper()
+        letter = ""
+        match choice:
+            case "V":
+                letter = randomVowel()
+                x += 1
+            case "C":
+                letter = randomConsonant()
+                x += 1
+            case other:
+                print("Please input a valid option")
+        if letter != "":
+            anagram = anagram + letter
+            print(anagram)
+    print("\nThe final anagram is: ", anagram, "\n")
+
     return
 
 
