@@ -41,14 +41,17 @@ For Point System:
 Notes:
     Consider adding probability for different letters (q is not nearly as common as s)
         Base off of statistics for how often letters appear in english?
+    Get rid of all traces of recursion
+    Give credit to github https://github.com/dwyl/english-words for json dictionary
+    Make lists of numbers more programmatical
 """
 
 
 # ------------------------------------- Program Initialisation
 
 
-import string
 import random
+import json
 
 # Main function - allow user to select a game to play
 def main():
@@ -57,7 +60,7 @@ def main():
         case "A":
             anagramGame()
         case "N":
-            print("TBC")
+            numbersGame()
         case "C":
             print("TBC")
         case "E":
@@ -82,6 +85,12 @@ def randomVowel():
     letter = random.choice(vowels)
     return letter
 
+# Solve all possible words from the anagrams
+def anagramSolver():
+    print("Anagram solver to come")
+    # Find all anagrams, send them to a method to track the largest
+    return
+
 # Anagram Game function - logic handling overarching plot for the anagram game
 def anagramGame():
     print("Please select the 7 types of letter you want:\nVowel: V\nConsonants: C\n")
@@ -103,7 +112,47 @@ def anagramGame():
             anagram = anagram + letter
             print(anagram)
     print("\nThe final anagram is: ", anagram, "\n")
+    anagramSolver()
+    return
 
+# Generate a random large numbers and track which numbers are left
+def largeNumbers(largeNumbersList):
+    # Limited 4 numbers - choose one and there are three left
+    return
+
+# Generate a random small numbers and track which numbers are left
+def smallNumbers(smalNumbersList):
+    # Two of each number, 1 - 10
+    return
+
+# Calculate the solution (best possible answer) to the numbers problem
+def numbersSolver():
+    return
+
+# Numbers Game function - logic handling overarching plot for the numbers game
+def numbersGame():
+    print("Please select the 6 numbers you want:\nLarge: L\nSmall: S\n")
+    numbersList = ""
+    largeNumbersList = "25", "50", "75", "100"
+    smallNumbersList = "1", "1", "2", "2", "3", "3", "4", "4", "5", "5", "6", "6", "7", "7", "8", "8", "9", "9", "10", "10",
+    x = 1
+    while x < 7:
+        choice = input(f"{x}/6:  ").upper()
+        number = ""
+        match choice:
+            case "L":
+                number = largeNumbers(largeNumbersList = largeNumbersList)
+                x += 1
+            case "S":
+                number = smallNumbers(smallNumbersList = smallNumbersList)
+                x += 1
+            case other:
+                print("Please input a valid option")
+        if number != "":
+            numbersList = numbersList + number
+            print(numbersList)
+    print("\nThe final numbers are: ", numbersList, "\n")
+    numbersSolver()
     return
 
 
