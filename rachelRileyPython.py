@@ -37,4 +37,22 @@ For Point System:
 """
 
 def main():
-    return
+    userOption = input("Select a game:/nAnagrams: A/nNumbers: N/nConundrum: C/nFull Episode: E/nQuit: Q").upper()
+    match userOption:
+        case "A":
+            print("TBC")
+        case "N":
+            print("TBC")
+        case "C":
+            print("TBC")
+        case "E":
+            print("TBC")
+        case "Q":
+            print("Thanks for playing!")
+            return
+        case other:
+            print("Please input a valid option")
+            main()
+
+print("Welcome to Countdown!/n")
+main()
