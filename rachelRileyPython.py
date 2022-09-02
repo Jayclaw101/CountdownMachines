@@ -53,6 +53,9 @@ Notes:
 import random
 import json
 
+file = open("newDictionary.json")
+dictionaryOfWords = json.load(file)
+
 # Main function - allow user to select a game to play
 def main():
     userOption = input("Select a game:\nAnagrams: A\nNumbers: N\nConundrum: C\nFull Episode: E\nQuit: Q\n").upper()
@@ -108,7 +111,7 @@ def allLongestWords(allAnagrams, longestWordLength):
 
 
 # Solve all possible words from the anagrams
-def anagramSolver():
+def anagramSolver(anagram):
     print("Anagram solver to come")
     # Find all anagrams, send them to a method to track the largest
     """
@@ -118,6 +121,10 @@ def anagramSolver():
     Remove letters from "empty set" as they are located in the "anagram set"
     If the set is empty after a full iteration of the anagram set, add dictionary.item (i) to the "set for all anagrams"
     """
+    allAnagrams = []
+    currentWord = []
+    print(anagram)
+    
     return
 
 # Anagram Game function - logic handling overarching plot for the anagram game
@@ -141,7 +148,7 @@ def anagramGame():
             anagram = anagram + letter
             print(anagram)
     print("\nThe final anagram is: ", anagram, "\n")
-    anagramSolver()
+    anagramSolver(anagram)
     return
 
 # Generate a random large numbers and track which numbers are left
@@ -189,4 +196,6 @@ def numbersGame():
 
 
 print("Welcome to Countdown!\n")
-main()
+#main()
+anagramGame()
+file.close
