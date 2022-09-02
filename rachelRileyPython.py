@@ -121,7 +121,7 @@ def largeNumbers(largeNumbersList):
     return
 
 # Generate a random small numbers and track which numbers are left
-def smallNumbers(smalNumbersList):
+def smallNumbers(smallNumbersList):
     # Two of each number, 1 - 10
     return
 
