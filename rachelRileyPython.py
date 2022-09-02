@@ -85,19 +85,48 @@ def randomVowel():
     letter = random.choice(vowels)
     return letter
 
+# Find the longest word length in the set
+def longestWord(allAnagrams):
+    longestWord = allAnagrams[0]
+
+    for i in allAnagrams:
+        if len(longestWord) < i:
+            longestWord = i
+
+    longestWordLength = len(longestWord)
+    return longestWordLength
+
+# Print all words of the maxium length
+def allLongestWords(allAnagrams, longestWordLength):
+    allLongestWordsList = []
+
+    for i in allAnagrams:
+        if len(i) == longestWordLength:
+            allLongestWordsList.append(i)
+
+    return allLongestWordsList
+
+
 # Solve all possible words from the anagrams
 def anagramSolver():
     print("Anagram solver to come")
     # Find all anagrams, send them to a method to track the largest
+    """
+    Set for all anagrams
+    Empty set that will copy each letter
+    Set that will have all anagram letters
+    Remove letters from "empty set" as they are located in the "anagram set"
+    If the set is empty after a full iteration of the anagram set, add dictionary.item (i) to the "set for all anagrams"
+    """
     return
 
 # Anagram Game function - logic handling overarching plot for the anagram game
 def anagramGame():
-    print("Please select the 7 types of letter you want:\nVowel: V\nConsonants: C\n")
+    print("Please select the 9 types of letter you want:\nVowel: V\nConsonants: C\n")
     anagram = ""
     x = 1
-    while x < 8:
-        choice = input(f"{x}/7:  ").upper()
+    while x < 10:
+        choice = input(f"{x}/9:  ").upper()
         letter = ""
         match choice:
             case "V":
